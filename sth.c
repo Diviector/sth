@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
             break;
         case 'n':
             nflag = 1;
-            unsigned char *letter = optarg;
+            unsigned char *letter = (unsigned char *)optarg;
             while (*letter++) {
                 count = count * 10 + *(letter - 1) - '0';
             }
@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
     int iter = 0;
     while (*++argv) {
-        unsigned char *letter = *argv;
+        unsigned char *letter = (unsigned char *)*argv;
 
         while (*letter) {
             utf8_to_cp1251(&letter);
@@ -50,8 +50,6 @@ int main(int argc, char *argv[]) {
             ++letter;
         }
     }
-
-    printf("\b");
 
     exit(0);
 }
