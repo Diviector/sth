@@ -1,1 +1,1 @@
-# sth
+# sth - string to hex
